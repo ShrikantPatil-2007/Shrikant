@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Toy Store</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#f5f5f5;
+}
+
+header{
+background:#ff6f61;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+nav{
+background:#333;
+padding:10px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:yellow;
+}
+
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+padding:20px;
+}
+
+.card{
+background:white;
+width:220px;
+margin:15px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+text-align:center;
+}
+
+.card img{
+width:100%;
+border-radius:10px 10px 0 0;
+}
+
+.card h3{
+margin:10px;
+}
+
+.price{
+color:green;
+font-weight:bold;
+}
+
+button{
+background:#ff6f61;
+color:white;
+border:none;
+padding:8px 15px;
+margin-bottom:15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff3b2e;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+
+/* Popup Form */
+.form-popup {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.6);
+}
+
+.form-box {
+background: white;
+width: 300px;
+margin: 100px auto;
+padding: 20px;
+border-radius: 10px;
+text-align: center;
+}
+
+.form-box input {
+width: 90%;
+margin: 5px 0;
+padding: 8px;
+}
+
+.form-box button {
+margin-top: 10px;
+}
+
+.close-btn {
+float: right;
+cursor: pointer;
+color: red;
+font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Happy Kids Toy Store</h1>
+<p>Best Toys for Kids</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Toys</a>
+<a href="#">Offers</a>
+<a href="#" onclick="openForm('General Inquiry')">Contact</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+<img src="https://via.placeholder.com/200x150">
+<h3>Teddy Bear</h3>
+<p class="price">$10</p>
+<button onclick="openForm('Teddy Bear')">Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200x150">
+<h3>Toy Car</h3>
+<p class="price">$8</p>
+<button onclick="openForm('Toy Car')">Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200x150">
+<h3>Building Blocks</h3>
+<p class="price">$12</p>
+<button onclick="openForm('Building Blocks')">Buy Now</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200x150">
+<h3>Doll Set</h3>
+<p class="price">$15</p>
+<button onclick="openForm('Doll Set')">Buy Now</button>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Happy Kids Toy Store</p>
+</footer>
+
+<!-- Popup Form -->
+<div id="buyForm" class="form-popup">
+
+<div class="form-box">
+<span class="close-btn" onclick="closeForm()">X</span>
+
+<h3 id="productTitle">Product</h3>
+
+<form onsubmit="submitForm(event)">
+<input type="text" placeholder="Your Name" required>
+<input type="text" placeholder="Address" required>
+<br>
+<button type="submit">Confirm Order</button>
+</form>
+
+<p id="msg" style="color:green;"></p>
+
+</div>
+</div>
+
+<script>
+function openForm(product) {
+document.getElementById("buyForm").style.display = "block";
+document.getElementById("productTitle").innerText = "Order: " + product;
+}
+
+function closeForm() {
+document.getElementById("buyForm").style.display = "none";
+}
+
+function submitForm(e) {
+e.preventDefault();
+document.getElementById("msg").innerText = "Order Placed Successfully!";
+}
+</script>
+
+</body>
+</html>
